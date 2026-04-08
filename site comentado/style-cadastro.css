@@ -1,0 +1,253 @@
+/* reset global: remove estilos padrao e padroniza comportamento */
+* {
+    margin: 0; /* remove margens padrao do navegador */
+    padding: 0; /* remove espaçamentos internos padrao */
+    box-sizing: border-box; /* mantem tamanho previsivel (padding nao aumenta largura) */
+    font-family: Arial, Helvetica, sans-serif; /* define fonte padrao com fallback 
+                                                     (fallback = outras fontes caso a primeira nao esteja instalado de forma padrao na maquina) */
+}
+
+/* corpo da pagina */  
+body {
+    height: 100vh; /* 100% da altura da tela (viewport)(viewport = parte visivel da tela) */
+    background: #ffffff; /* fundo branco */
+
+    display: flex; /* ativa flexbox (flexbox = alinha e organiza os elementos de forma facil)*/
+    align-items: center; /* centraliza verticalmente */
+    justify-content: center; /* centraliza horizontalmente */
+}
+
+/* container principal (wrapper = caixa que envolve tudo) */
+.wrapper {
+    display: flex; /* layout lado a lado */
+
+    width: 900px; /* tamanho fixo (controle total do layout) */
+    height: 570px;
+
+    background: #FAF3E8; /* cor de fundo */
+
+    border-radius: 40px; /* bordas arredondadas */
+
+    box-shadow: 10px 10px 25px rgba(0,0,0,0.5); /* sombra */
+
+    overflow: hidden; /* esconde conteudo que ultrapassar */
+
+    margin-bottom: 20px; 
+    /* espaco FORA da caixa, empurra elementos abaixo
+       usado para separar blocos grandes */
+}
+
+/* caixa da imagem */
+.img_box {
+    width: 50%; /* metade do container */
+}
+
+/* imagem dentro da caixa */
+.img_box img {
+    width: 100%; /* preenche largura */
+    height: 100%; /* preenche altura */
+
+    object-fit: cover; /* ajusta sem distorcer (corta se necessario)(ideal para enquadrar imagens) */
+}
+
+/* container do formulario */
+.cls_container {
+    width: 50%; /* outra metade */
+
+    padding: 30px; /* espacamento interno */
+
+    display: flex;
+    flex-direction: column; /* organiza em coluna */
+
+    align-items: center; /* centraliza horizontalmente */
+}
+
+/* logo */
+#id_logo {
+    width: 250px; /* tamanho fixo da imagem */
+    margin-bottom: 20px; /* espaco abaixo para separar do proximo elemento */
+}
+
+/* titulo */
+.cls_container h3 {
+    font-size: larger; /* tamanho relativo ao navegador */
+    margin-bottom: 15px; /* espacamento abaixo */
+    color: #2c3e50;
+    cursor: default; /* cursor normal (nao clicavel) */
+}
+
+/* container de input (para posicionar icone) */
+.container_input {
+    position: relative; /* base para posicionamento absoluto interno */
+    width: 100%;
+    margin-bottom: 12px; /* separa um input do outro */
+}
+
+/* icone dentro do input */
+.container_input i {
+    position: absolute; /* posicionamento livre dentro do container */
+    left: 12px; /* distancia da esquerda */
+    top: 50%; /* meio vertical */
+    transform: translateY(-50%); /* centraliza perfeitamente */
+
+    font-size: 16px;
+    color: #9aa0a6;
+
+    pointer-events: none; /* icone nao interfere em clique */
+}
+
+/* campo de input */
+.cls_input {
+    width: 100%;
+    height: 42px;
+
+    padding-left: 40px; /* espaco para o icone */
+
+    border-radius: 8px;
+
+    border: 1px solid #ccc; 
+    /* borda: 1px = espessura fixa
+       solid = linha continua
+       #ccc = cinza claro (visual leve) */
+
+    background: #f5f5f5;
+
+    outline: none; /* remove borda padrao do navegador */
+
+    font-size: 14px;
+
+    line-height: 42px; /* centraliza texto verticalmente */
+}
+
+/* hover = quando passa o mouse */
+.cls_input:hover {
+    border: 1px solid rgba(184, 184, 184, 0.8);
+    background-color: rgb(225, 225, 225);
+}
+
+/* focus = quando clica ou usa tab */
+.cls_input:focus {
+    border: 1px solid #B83232;
+    background-color: #ffffff;
+}
+
+/* focus-within = quando algo dentro recebe foco */
+.container_input:focus-within i {
+    color: #B83232; /* icone muda junto com input */
+}
+
+/* link esqueci senha */
+#id_senha {
+    font-size: 12px;
+    color: #57BAEB;
+
+    text-align: right; 
+    /* alinha texto para direita (comum em links secundarios) */
+
+    margin-bottom: 10px;
+
+    width: fit-content; /* tamanho baseado no conteudo */
+}
+
+/* botao */
+.cls_button {
+    margin-top: 10px;
+
+    padding: 6px 15px; /* espacamento interno */
+
+    border: none;
+    border-radius: 10px;
+
+    background: #B83232;
+    color: white;
+
+    font-size: large;
+    font-weight: bold;
+
+    cursor: pointer; /* cursor vira "mao" */
+
+    transition: 0.3s; /* animacoes suaves */
+
+    width: 200px; /* largura fixa */
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* separa texto e icone */
+}
+
+/* hover = muda o que voce pedir do visual ao passar o mouse */
+.cls_button:hover {
+    background: #a61f1f;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+/* active = enquanto esta clicadno muda */
+.cls_button:active {
+    transform: scale(0.95); 
+    /* efeito de pressionar (botao "afunda") */
+}
+
+/* icone dentro do botao (voce pode colocar especificacoes umas dentro da outras, nesse caso: a class "cls_button" e dentro dela o "<i>") */
+.cls_button i {
+    margin-left: 15px;
+    width: 14px;
+
+    rotate: 45deg; /* comeca inclinado */
+}
+
+/* animacao ao passar mouse */
+.cls_button:hover i{
+    rotate: 0deg;
+}
+
+/* mensagem abaixo */
+#div_mensagem {
+    color: #9aa0a6;
+    font-size: small;
+    margin-top: 5px;
+}
+
+/* links */
+a {
+    font-size: 12px;
+    color: #57BAEB;
+
+    text-decoration: none; 
+    /* remove sublinhado padrao */
+
+    margin-top: 10px;
+}
+
+/* hover no link */
+a:hover {
+    text-decoration: underline; 
+    /* adiciona sublinhado ao passar o mouse (aquele que removi antes) */
+}
+
+/* botao fixo no topo */
+#id_inicial {
+    position: fixed; /* fica fixo na tela */
+    top: 10px;
+    left: 20px;
+
+    font-size: 22px;
+
+    text-decoration: none;
+
+    color: #2c3e50;
+
+    background: #FAF3E8;
+
+    padding: 8px 12px;
+
+    border-radius: 10px;
+
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+
+    transition: 0.3s;
+}
+
+/* hover do botao fixo */
+#id_inicial:hover {
+    background: rgb(230, 223, 212);
+}
